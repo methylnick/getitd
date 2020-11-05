@@ -13,7 +13,7 @@ dc.getcontext().prec = 5
 import pprint
 import os
 import copy
-
+import gzip
 
 def save_config(config, filename):
     """
@@ -1349,7 +1349,7 @@ def read_fastq(fastq_file):
     reads = []
     read_index = 0
     try:
-        with open(fastq_file,'r') as f:
+        with gzip.open(fastq_file,'rt') as f:
             line = f.readline()
             while line:
                 read_id = line
